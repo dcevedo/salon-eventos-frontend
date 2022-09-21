@@ -1,6 +1,7 @@
-import { Clients } from './../clients';
+import { Client } from './../clients';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients-list',
@@ -9,9 +10,10 @@ import { ClientService } from '../client.service';
 })
 export class ClientsListComponent implements OnInit {
 
-  clients:Clients[];
+  clients:Client[];
+  client:Client;
 
-  constructor(private clientService:ClientService) { }
+  constructor(private clientService:ClientService, private router:Router) { }
 
   ngOnInit(): void {
     // this.obtenerClients();
@@ -34,5 +36,34 @@ export class ClientsListComponent implements OnInit {
     this.clientService.obtenerListaDeClients().subscribe(dato => {
       this.clients = dato;
     })
+  }
+
+  private obtenerClient(id:number){
+    this.clientService.ObtenerClientporId(id).subscribe(c =>{
+      this.client = c;
+    })
+  }
+
+  clientUpdate(id:number){
+    this.router.navigate(['client-update',id]);
+    // this.obtenerClient(id);
+    // this.clientService.clientUpdate(id,this.client).subscribe({
+    //   error : (e) => console.log(e),
+    //   complete : () => console.info('complete')
+    // });
+  }
+
+  clientDelete(id:number){
+    this.clientService.clientDelete(id).subscribe({
+      error : (e) => console.log(e),
+      complete : () => {
+        console.info('complete')
+        // this.obtenerClients
+      }
+    });
+  }
+
+  clientDetails(id:number){
+    this.router.navigate(['client-details',id])
   }
 }

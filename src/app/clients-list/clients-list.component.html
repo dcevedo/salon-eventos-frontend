@@ -5,6 +5,7 @@
 			<th>Nombre</th>
 			<th>Email</th>
 			<th>Edad</th>
+			<th>Opciones</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -12,6 +13,11 @@
 			<td>{{client.name}}</td>
 			<td>{{client.email}}</td>
 			<td>{{client.age}}</td>
+			<td>
+				<button (click)="clientUpdate(client.id)" class="btn btn-info">Editar</button>
+				<button (click)="clientDelete(client.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+				<button (click)="clientDetails(client.id)" class="btn btn-primary" style="margin-left: 10px;">Detalles</button>
+			</td>
 		</tr>
 	</tbody>
 </table>
