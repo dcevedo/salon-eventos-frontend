@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ClientService } from '../client.service';
+import { Client } from '../clients';
 
 @Component({
   selector: 'app-client-register',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientRegisterComponent implements OnInit {
 
-  constructor() { }
+  client : Client = new Client();
+
+  constructor(private clientService: ClientService, private router:Router) { }
 
   ngOnInit(): void {
+    
   }
 
+  guardarClient(){
+    this.clientService.registrarClient(this.client).subscribe( {
+      next : (v) => console.log(v),
+      error : (e) => console.log(e),
+      complete : () => console.info('complete')
+    });
+  }
+
+  irAClientList(){
+    this.router.navigate(['/clients'])
+  }
+
+
+  onSubmit(): void{
+    console.log(this.client);
+    this.guardarClient();
+  }
 }
