@@ -46,11 +46,6 @@ export class ClientsListComponent implements OnInit {
 
   clientUpdate(id:number){
     this.router.navigate(['client-update',id]);
-    // this.obtenerClient(id);
-    // this.clientService.clientUpdate(id,this.client).subscribe({
-    //   error : (e) => console.log(e),
-    //   complete : () => console.info('complete')
-    // });
   }
 
   clientDelete(id:number){
@@ -58,7 +53,7 @@ export class ClientsListComponent implements OnInit {
       error : (e) => console.log(e),
       complete : () => {
         console.info('complete')
-        // this.obtenerClients
+        this.obtenerClients
       }
     });
   }

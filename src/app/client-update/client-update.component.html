@@ -1,1 +1,24 @@
-<p>client-update works!</p>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Actualizar cliente</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nombre : </label>
+            <input type="text" class="form-control" id="nombre"
+            [(ngModel)] = "client.name"
+            name="Nombre">
+        </div>
+        <div class="form-group">
+            <label>Email : </label>
+            <input type="text" class="form-control" id="email"
+            [(ngModel)] = "client.email"
+            name="Email">
+        </div>
+        <div class="form-group">
+            <label>Edad : </label>
+            <input type="text" class="form-control" id="Edad"
+            [(ngModel)] = "client.age"
+            name="Edad">
+        </div>
+        <button class="btn btn-success">Guardar</button>
+    </form>
+</div>
