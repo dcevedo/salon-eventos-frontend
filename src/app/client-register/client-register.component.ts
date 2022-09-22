@@ -34,5 +34,6 @@ export class ClientRegisterComponent implements OnInit {
   onSubmit(): void{
     console.log(this.client);
     this.guardarClient();
+    this.irAClientList();
   }
 }

@@ -33,7 +33,7 @@ export class ClientUpdateComponent implements OnInit {
       error : e => console.log(e),
       complete : () => {
         console.info(`Complete the submit!`);
-        this.irAClientList
+        this.irAClientList();
       }
     });
   }

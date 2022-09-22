@@ -8,7 +8,7 @@ import { Client } from './clients';
 })
 export class ClientService {
 
-  private baseURL = "get all clients";
+  private baseURL = "http://localhost:8080/api/clients";
 
   constructor(private httpClient : HttpClient) { }
 

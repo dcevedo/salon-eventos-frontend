@@ -16,21 +16,21 @@ export class ClientsListComponent implements OnInit {
   constructor(private clientService:ClientService, private router:Router) { }
 
   ngOnInit(): void {
-    // this.obtenerClients();
-    this.clients = [
-      {
-        id : 1,
-        name : "David",
-        email : "davida@gmail.com",
-        age : 27
-      },
-      {
-        id: 2,
-        name : "Andres",
-        email : "andresg@gmail.com",
-        age : 22
-      }
-    ]
+    this.obtenerClients();
+    // this.clients = [
+      // {
+      //   id : 1,
+      //   name : "David",
+      //   email : "davida@gmail.com",
+      //   age : 27
+      // },
+    //   {
+    //     id: 2,
+    //     name : "Andres",
+    //     email : "andresg@gmail.com",
+    //     age : 22
+    //   }
+    // ]
   }
   private obtenerClients(){
     this.clientService.obtenerListaDeClients().subscribe(dato => {
@@ -74,7 +74,7 @@ export class ClientsListComponent implements OnInit {
           },
           complete : () => {
             console.info('complete')
-            this.obtenerClients
+            this.obtenerClients();
             swal(
               'Cliente eliminado',
               'El cliente ha sido eliminado con exito',
