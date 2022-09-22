@@ -2,7 +2,7 @@ import { Client } from './../clients';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../client.service';
 import { Router } from '@angular/router';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-clients-list',
   templateUrl: './clients-list.component.html',
@@ -49,16 +49,45 @@ export class ClientsListComponent implements OnInit {
   }
 
   clientDelete(id:number){
-    this.clientService.clientDelete(id).subscribe({
-      error : (e) => console.log(e),
-      complete : () => {
-        console.info('complete')
-        this.obtenerClients
+    swal({
+      title: '¿Estas seguro?',
+      text: "Confirma si deseas eliminar al cliente",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si , elimínalo',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result) => {
+      if(result.value){
+        this.clientService.clientDelete(id).subscribe({
+          error : (e) => {
+            swal(
+              'Error',
+              'El cliente no ha sido eliminado',
+              'error'
+            )
+            console.log(e)
+          },
+          complete : () => {
+            console.info('complete')
+            this.obtenerClients
+            swal(
+              'Cliente eliminado',
+              'El cliente ha sido eliminado con exito',
+              'success'
+            )
+          }
+        });
       }
-    });
+    })
   }
 
   clientDetails(id:number){
     this.router.navigate(['client-details',id])
   }
+
 }
