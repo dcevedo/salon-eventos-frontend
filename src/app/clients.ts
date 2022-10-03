@@ -1,8 +1,7 @@
 export class Client {
-    id:number;
+    idClient:number;
     name:string;
     email:string;
     age:number;
-    
  
 }

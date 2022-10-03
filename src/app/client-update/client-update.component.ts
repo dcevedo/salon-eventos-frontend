@@ -29,7 +29,7 @@ export class ClientUpdateComponent implements OnInit {
   }
 
   onSubmit(){
-    this.clientService.clientUpdate(this.client.id,this.client).subscribe({
+    this.clientService.clientUpdate(this.client.idClient,this.client).subscribe({
       error : e => console.log(e),
       complete : () => {
         console.info(`Complete the submit!`);
