@@ -3,5 +3,6 @@ export class Client {
     name:string;
     email:string;
     age:number;
- 
+    messages: Array<any>
+    reservations: Array<any>
 }
