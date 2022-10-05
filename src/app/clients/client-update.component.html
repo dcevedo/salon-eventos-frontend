@@ -8,7 +8,7 @@
 			name="Nombre"
 			required 
 			minlength="4"
-			maxlength="10"
+			maxlength="50"
 			placeholder="Escriba su nombre"
 			#nombre = "ngModel"
 			>
@@ -20,7 +20,7 @@
 					El nombre debe ser mayor a 4 caracteres
 				</div>
 				<div *ngIf = "nombre.errors?.['maxlength']">
-					El nombre debe tener maximo 10 caracteres
+					El nombre debe tener maximo 50 caracteres
 				</div>
 			</div>
 		</div>
@@ -49,6 +49,7 @@
 			[(ngModel)] = "client.age" 
 			name="Edad"
 			required
+			maxlength="2"
 			pattern="^[0-9]*$"
 			placeholder="Escriba su edad"
 			#edad = "ngModel"
@@ -59,6 +60,9 @@
 				</div> 
 				<div *ngIf = "edad.errors?.['pattern']">
 					La edad es invalida ingrese solo numeros
+				</div>
+				<div *ngIf = "nombre.errors?.['maxlength']">
+					La edad debe ser maximo dos numeros
 				</div>
 			</div>
 		</div>

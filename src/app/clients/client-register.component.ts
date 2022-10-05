@@ -22,7 +22,10 @@ export class ClientRegisterComponent implements OnInit {
     this.clientService.registrarClient(this.client).subscribe( {
       next : (v) => console.log(v),
       error : (e) => console.log(e),
-      complete : () => console.info('complete')
+      complete : () => {
+        console.info('complete')
+        this.irAClientList();
+      }
     });
   }
 
@@ -34,6 +37,5 @@ export class ClientRegisterComponent implements OnInit {
   onSubmit(): void{
     console.log(this.client);
     this.guardarClient();
-    this.irAClientList();
   }
 }

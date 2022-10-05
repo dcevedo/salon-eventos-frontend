@@ -1,4 +1,4 @@
-<div class="col-md-6 offset-md-3">
+<div class="col-md-6 offset-md-3" *ngIf="client">
     <br>
     <h3 class="text-center">Detalles del empleado</h3>
     <div>
@@ -12,5 +12,17 @@
     </div>
     <div>
         <label><b>Edad :</b> {{client.age}}</label>
+    </div>
+    <div>
+        <label><b>Mensajes:</b></label>
+        <li *ngFor="let message of client.messages">
+            <span>{{message.messageText}}</span>
+        </li>
+    </div>
+    <div>
+        <label><b>Reservaciones:</b></label>
+        <li *ngFor="let reservation of client.reservations">
+            <span>{{reservation.idReservation}}</span>
+        </li>
     </div>
 </div>
