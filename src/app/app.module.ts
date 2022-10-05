@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientsListComponent } from './clients-list/clients-list.component';
+import { ClientsListComponent } from './clients/clients-list.component';
 import { HttpClientModule} from '@angular/common/http';
-import { ClientRegisterComponent } from './client-register/client-register.component';
+import { ClientRegisterComponent } from './clients/client-register.component';
 import { FormsModule } from '@angular/forms';
-import { ClientUpdateComponent } from './client-update/client-update.component';
-import { ClientDetailsComponent } from './client-details/client-details.component';
+import { ClientUpdateComponent } from './clients/client-update.component';
+import { ClientDetailsComponent } from './clients/client-details.component';
+import { PartyroomListComponent } from './partyrooms/partyroom-list.component';
+import { PartyroomCreateComponent } from './partyrooms/partyroom-create.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ClientDetailsComponent } from './client-details/client-details.componen
     ClientsListComponent,
     ClientRegisterComponent,
     ClientUpdateComponent,
-    ClientDetailsComponent
+    ClientDetailsComponent,
+    PartyroomListComponent,
+    PartyroomCreateComponent
   ],
   imports: [
     BrowserModule,

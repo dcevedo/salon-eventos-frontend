@@ -1,0 +1,23 @@
+<h2>List de Salones</h2>
+<table class="table table-striped">
+	<thead class="table-dark">
+		<tr>
+			<th>Nombre</th>
+			<th>Propietario</th>
+			<th>Capacidad</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let partyroom of partyrooms">
+			<td>{{partyroom.name}}</td>
+			<td>{{partyroom.owner}}</td>
+			<td>{{partyroom.capacity}}</td>
+			<td>
+				<button (click)="partyroomUpdate(partyroom.id)" class="btn btn-info">Editar</button>
+				<button (click)="partyroomDelete(partyroom.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+				<button (click)="partyroomDetails(partyroom.id)" class="btn btn-primary" style="margin-left: 10px;">Actualizar</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
