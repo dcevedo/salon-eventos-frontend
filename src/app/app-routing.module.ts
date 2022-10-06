@@ -4,6 +4,9 @@ import { ClientDetailsComponent } from './clients/client-details.component';
 import { ClientRegisterComponent } from './clients/client-register.component';
 import { ClientUpdateComponent } from './clients/client-update.component';
 import { ClientsListComponent } from './clients/clients-list.component';
+import { MessageCreateComponent } from './messages/message-create.component';
+import { MessageListComponent } from './messages/message-list.component';
+import { MessageUpdateComponent } from './messages/message-update.component';
 import { PartyroomCreateComponent } from './partyrooms/partyroom-create.component';
 import { PartyroomListComponent } from './partyrooms/partyroom-list.component';
 import { PartyroomUpdateComponent } from './partyrooms/partyroom-update.component';
@@ -16,7 +19,10 @@ const routes: Routes = [
   {path: 'client-details/:id',component:ClientDetailsComponent},
   {path : 'partyrooms', component:PartyroomListComponent},
   {path : 'partyrooms-create', component:PartyroomCreateComponent},
-  {path : 'partyroom-update/:id', component:PartyroomUpdateComponent},
+  {path : 'partyrooms-update/:id', component:PartyroomUpdateComponent},
+  {path : 'messages', component:MessageListComponent},
+  {path : 'messages-create', component:MessageCreateComponent},
+  {path : 'messages-update/:id', component:MessageUpdateComponent},
   {path: '**',redirectTo:'',pathMatch:'full'},
 ];
 

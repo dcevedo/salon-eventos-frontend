@@ -1,1 +1,23 @@
-<p>message-list works!</p>
+<h2>Lista de Mensajes</h2>
+<table class="table table-striped" *ngIf="messages">
+	<thead class="table-dark">
+		<tr>
+			<th>Cliente</th>
+			<th>Salon</th>
+			<th>Mensaje</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let message of messages">
+			<td>{{message.client.name}}</td>
+			<td>{{message.partyroom.name}}</td>
+			<td>{{message.messageText}}</td>
+			<td>
+				<button (click)="messageUpdate(message.idMessage)" class="btn btn-info">Editar</button>
+				<button (click)="messageDelete(message.idMessage)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+				<button (click)="messageDetails(message.idMessage)" class="btn btn-primary" style="margin-left: 10px;">Detalles</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

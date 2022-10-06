@@ -1,1 +1,57 @@
-<p>message-update works!</p>
+<div class="col-md-6 offset-md-3">
+	<h3 class="text-center">Registro de Mensajes</h3>
+	<form (ngSubmit)="onSubmit()" #messageForm = "ngForm" *ngIf="message">
+		<div class="form-group">
+			<label>Mensaje : </label>
+			<textarea type="text" class="form-control" rows="3" id="mensaje"
+			[(ngModel)] = "message.messageText" 
+			name="Mensaje"
+			required 
+			minlength="3"
+			maxlength="250"
+			placeholder="Escriba su mensaje en maximo 250 caracteres"
+			#mensaje = "ngModel"
+			></textarea>
+			<div class="alert alert-danger" *ngIf = "mensaje.invalid && (mensaje.dirty || mensaje.touched)" >
+				<div *ngIf = "mensaje.errors?.['required']">
+					Debe ingresar el mensaje del salon
+				</div> 
+				<div *ngIf = "mensaje.errors?.['minlength']">
+					El mensaje debe ser mayor a 3 caracteres
+				</div>
+				<div *ngIf = "mensaje.errors?.['maxlength']">
+					El nombre debe tener maximo 250 caracteres
+				</div>
+			</div>
+		</div>
+        <div class="form-group">
+			<label>Salon : </label>
+            <select class="form-control" id="partyroom"
+            [(ngModel)] = "message.partyroom"
+            [compareWith]="comparePartyrooms"
+            name="Partyroom"
+            required
+            >
+            <!-- <option [ngValue]="undefined" disabled>Selecciona un salon</option> -->
+            <option *ngFor="let partyroom of partyrooms" [ngValue]="partyroom" >
+                {{partyroom.name}}
+            </option>
+        </select>
+		</div>
+        <div class="form-group">
+			<label>Cliente : </label>
+            <select class="form-control" id="client"
+            [(ngModel)] = "message.client"
+            [compareWith]="compareClients"
+            name="Client"
+            required
+            >
+            <!-- <option [ngValue]="undefined" disabled>Seleccione un cliente</option> -->
+            <option *ngFor="let client of clients" [ngValue]="client" >
+                {{client.name}}
+            </option>
+        </select>
+		</div>
+		<button class="btn btn-success" [disabled] = "!messageForm.form.valid">Guardar</button>
+	</form>
+</div>

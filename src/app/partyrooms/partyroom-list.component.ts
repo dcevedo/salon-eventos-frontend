@@ -27,7 +27,7 @@ export class PartyroomListComponent implements OnInit {
   }
 
   partyroomUpdate(id:number){
-    this.router.navigate(['partyroom-update',id]);
+    this.router.navigate(['partyrooms-update',id]);
   }
 
   partyroomDelete(id:number){
@@ -68,7 +68,7 @@ export class PartyroomListComponent implements OnInit {
     })
   }
   partyroomDetails(id:number){
-    this.router.navigate(['partyroom-details',id])
+    this.router.navigate(['partyrooms-details',id])
   }
 
 }
