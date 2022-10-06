@@ -1,3 +1,4 @@
+import { CategoryDTO } from "../dto/categoryDTO";
 import { Category } from "./categories";
 import { Message } from "./messages";
 import { Reservation } from "./reservation";

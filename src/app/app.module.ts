@@ -11,6 +11,10 @@ import { ClientUpdateComponent } from './clients/client-update.component';
 import { ClientDetailsComponent } from './clients/client-details.component';
 import { PartyroomListComponent } from './partyrooms/partyroom-list.component';
 import { PartyroomCreateComponent } from './partyrooms/partyroom-create.component';
+import { PartyroomUpdateComponent } from './partyrooms/partyroom-update.component';
+import { MessageListComponent } from './messages/message-list.component';
+import { MessageCreateComponent } from './messages/message-create.component';
+import { MessageUpdateComponent } from './messages/message-update.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { PartyroomCreateComponent } from './partyrooms/partyroom-create.componen
     ClientUpdateComponent,
     ClientDetailsComponent,
     PartyroomListComponent,
-    PartyroomCreateComponent
+    PartyroomCreateComponent,
+    PartyroomUpdateComponent,
+    MessageListComponent,
+    MessageCreateComponent,
+    MessageUpdateComponent
   ],
   imports: [
     BrowserModule,

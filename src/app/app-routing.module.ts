@@ -6,6 +6,7 @@ import { ClientUpdateComponent } from './clients/client-update.component';
 import { ClientsListComponent } from './clients/clients-list.component';
 import { PartyroomCreateComponent } from './partyrooms/partyroom-create.component';
 import { PartyroomListComponent } from './partyrooms/partyroom-list.component';
+import { PartyroomUpdateComponent } from './partyrooms/partyroom-update.component';
 
 const routes: Routes = [
   {path : 'clients', component:ClientsListComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'client-details/:id',component:ClientDetailsComponent},
   {path : 'partyrooms', component:PartyroomListComponent},
   {path : 'partyrooms-create', component:PartyroomCreateComponent},
+  {path : 'partyroom-update/:id', component:PartyroomUpdateComponent},
   {path: '**',redirectTo:'',pathMatch:'full'},
 ];
 

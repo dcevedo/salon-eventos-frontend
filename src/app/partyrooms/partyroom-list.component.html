@@ -1,5 +1,5 @@
-<h2>List de Salones</h2>
-<table class="table table-striped">
+<h2>Lista de Salones</h2>
+<table class="table table-striped" *ngIf="partyrooms">
 	<thead class="table-dark">
 		<tr>
 			<th>Nombre</th>
@@ -16,7 +16,7 @@
 			<td>
 				<button (click)="partyroomUpdate(partyroom.id)" class="btn btn-info">Editar</button>
 				<button (click)="partyroomDelete(partyroom.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
-				<button (click)="partyroomDetails(partyroom.id)" class="btn btn-primary" style="margin-left: 10px;">Actualizar</button>
+				<button (click)="partyroomDetails(partyroom.id)" class="btn btn-primary" style="margin-left: 10px;">Detalles</button>
 			</td>
 		</tr>
 	</tbody>
