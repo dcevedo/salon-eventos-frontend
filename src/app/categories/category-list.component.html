@@ -1,0 +1,21 @@
+<h2>Lista de Categorias</h2>
+<table class="table table-striped" *ngIf="categories">
+	<thead class="table-dark">
+		<tr>
+			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let category of categories">
+			<td>{{category.name}}</td>
+			<td>{{category.description}}</td>
+			<td>
+				<button (click)="categoryUpdate(category.id)" class="btn btn-info">Editar</button>
+				<button (click)="categoryDelete(category.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+				<button (click)="categoryDetails(category.id)" class="btn btn-primary" style="margin-left: 10px;">Detalles</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

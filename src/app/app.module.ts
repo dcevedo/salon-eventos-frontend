@@ -15,6 +15,9 @@ import { PartyroomUpdateComponent } from './partyrooms/partyroom-update.componen
 import { MessageListComponent } from './messages/message-list.component';
 import { MessageCreateComponent } from './messages/message-create.component';
 import { MessageUpdateComponent } from './messages/message-update.component';
+import { CategoryListComponent } from './categories/category-list.component';
+import { CategoryCreateComponent } from './categories/category-create.component';
+import { CategoryUpdateComponent } from './categories/category-update.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { MessageUpdateComponent } from './messages/message-update.component';
     PartyroomUpdateComponent,
     MessageListComponent,
     MessageCreateComponent,
-    MessageUpdateComponent
+    MessageUpdateComponent,
+    CategoryListComponent,
+    CategoryCreateComponent,
+    CategoryUpdateComponent
   ],
   imports: [
     BrowserModule,

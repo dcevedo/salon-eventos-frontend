@@ -1,0 +1,53 @@
+<div class="col-md-6 offset-md-3">
+	<h3 class="text-center">Registro de Categorias</h3>
+	<form (ngSubmit)="onSubmit()" #categoryForm = "ngForm" *ngIf="category">
+		<div class="form-group">
+			<label>Nombre : </label>
+			<input type="text" class="form-control" id="nombre"
+			[(ngModel)] = "category.name" 
+			name="Nombre"
+			required 
+			minlength="3"
+			maxlength="50"
+			placeholder="Ingrese el nombre"
+			#nombre = "ngModel"
+			>
+			<div class="alert alert-danger" *ngIf = "nombre.invalid && (nombre.dirty || nombre.touched)" >
+				<div *ngIf = "nombre.errors?.['required']">
+					Debe ingresar el nombre de la categoria
+				</div> 
+				<div *ngIf = "nombre.errors?.['minlength']">
+					El nombre debe ser mayor a 3 caracteres
+				</div>
+				<div *ngIf = "nombre.errors?.['maxlength']">
+					el nombre debe tener maximo 50 caracteres
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Descripcion : </label>
+			<textarea type="text" class="form-control" rows="3" id="descripcion"
+			[(ngModel)] = "category.description" 
+			name="Descripcion"
+			required 
+			minlength="3"
+			maxlength="250"
+			placeholder="Ingrese la descripcion"
+			#descripcion = "ngModel"
+			></textarea>
+			<div class="alert alert-danger" *ngIf = "descripcion.invalid && (descripcion.dirty || descripcion.touched)" >
+				<div *ngIf = "descripcion.errors?.['required']">
+					Debe ingresar la descripcion de la categoria
+				</div> 
+				<div *ngIf = "descripcion.errors?.['minlength']">
+					La descripcion debe ser mayor a 3 caracteres
+				</div>
+				<div *ngIf = "descripcion.errors?.['maxlength']">
+					La descripcion debe tener maximo 250 caracteres
+				</div>
+			</div>
+		</div>
+
+        <button class="btn btn-success" [disabled] = "!categoryForm.form.valid">Guardar</button>
+	</form>
+</div>

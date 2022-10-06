@@ -21,4 +21,15 @@ export class CategoryService {
     return this.httpClient.get<Category>(`${this.baseURL}/${id}`);
   }
 
+  createCategory(category:Category):Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,category);
+  }
+
+  updateCategory(id:number, category:Category):Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,category);
+  }
+
+  deleteCategory(id:number):Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
 }

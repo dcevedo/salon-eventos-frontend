@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategoryCreateComponent } from './categories/category-create.component';
+import { CategoryListComponent } from './categories/category-list.component';
+import { CategoryUpdateComponent } from './categories/category-update.component';
 import { ClientDetailsComponent } from './clients/client-details.component';
 import { ClientRegisterComponent } from './clients/client-register.component';
 import { ClientUpdateComponent } from './clients/client-update.component';
@@ -23,6 +26,9 @@ const routes: Routes = [
   {path : 'messages', component:MessageListComponent},
   {path : 'messages-create', component:MessageCreateComponent},
   {path : 'messages-update/:id', component:MessageUpdateComponent},
+  {path : 'categories', component:CategoryListComponent},
+  {path : 'categories-create', component:CategoryCreateComponent},
+  {path : 'categories-update/:id', component:CategoryUpdateComponent},
   {path: '**',redirectTo:'',pathMatch:'full'},
 ];
 
