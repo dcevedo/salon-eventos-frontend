@@ -1,0 +1,65 @@
+<div class="col-md-6 offset-md-3">
+	<h3 class="text-center">Reservaciones</h3>
+	<form (ngSubmit)="onSubmit()" #reservationForm = "ngForm" *ngIf="reservation">
+        <div class="form-group">
+			<label>Salon : </label>
+            <select class="form-control" id="partyroom"
+            [(ngModel)] = "reservation.partyroom"
+            [compareWith]="comparePartyrooms"
+            name="Partyroom"
+            required
+            >
+            <option *ngFor="let partyroom of partyrooms" [ngValue]="partyroom" >
+                {{partyroom.name}}
+            </option>
+        </select>
+		</div>
+        <div class="form-group">
+			<label>Cliente : </label>
+            <select class="form-control" id="client"
+            [(ngModel)] = "reservation.client"
+            [compareWith]="compareClients"
+            name="Client"
+            required
+            >
+            <option *ngFor="let client of clients" [ngValue]="client" >
+                {{client.name}}
+            </option>
+        </select>
+		</div>
+        <div class="form-group">
+			<label>Score : </label>
+            <select class="form-control" id="score"
+            [(ngModel)] = "reservation.score"
+            [compareWith]="compareScores"
+            name="Score"
+            required
+            >
+            <option *ngFor="let score of scores" [ngValue]="score" >
+                {{score.value}}
+            </option>
+        </select>
+		</div>
+		<div class="form-group">
+			<label>Fechas de inicio y devolucion : </label>
+			<br>
+			<mat-form-field class="form-control" appearance="fill">
+				<mat-label>Elija dos fechas</mat-label>
+				<mat-date-range-input [formGroup]="range" [rangePicker]="picker" required>
+				  <input required matStartDate formControlName="start" placeholder="Inicial">
+				  <input required matEndDate formControlName="end" placeholder="Final">
+				</mat-date-range-input>
+				<mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				<mat-date-range-picker #picker></mat-date-range-picker>
+			  
+				<mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+				<mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+				<mat-error *ngIf="range.controls.start.invalid || range.controls.end.invalid ">Son requeridas fechas validas</mat-error>
+			  </mat-form-field>
+			  
+			  <!-- <p>Selected range: {{range.value| json}}</p> -->
+		</div>
+		<button class="btn btn-success" [disabled] = "!reservationForm.form.valid || !range.valid">Guardar</button>
+	</form>
+</div>

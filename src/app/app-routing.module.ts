@@ -13,6 +13,9 @@ import { MessageUpdateComponent } from './messages/message-update.component';
 import { PartyroomCreateComponent } from './partyrooms/partyroom-create.component';
 import { PartyroomListComponent } from './partyrooms/partyroom-list.component';
 import { PartyroomUpdateComponent } from './partyrooms/partyroom-update.component';
+import { ReservationCreateComponent } from './reservations/reservation-create.component';
+import { ReservationListComponent } from './reservations/reservation-list.component';
+import { ReservationUpdateComponent } from './reservations/reservation-update.component';
 
 const routes: Routes = [
   {path : 'clients', component:ClientsListComponent},
@@ -29,6 +32,9 @@ const routes: Routes = [
   {path : 'categories', component:CategoryListComponent},
   {path : 'categories-create', component:CategoryCreateComponent},
   {path : 'categories-update/:id', component:CategoryUpdateComponent},
+  {path : 'reservations', component:ReservationListComponent},
+  {path : 'reservations-create', component:ReservationCreateComponent},
+  {path : 'reservations-update/:id', component:ReservationUpdateComponent},
   {path: '**',redirectTo:'',pathMatch:'full'},
 ];
 

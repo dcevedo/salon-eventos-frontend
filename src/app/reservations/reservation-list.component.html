@@ -1,0 +1,27 @@
+<h2>Lista de Reservaciones</h2>
+<table class="table table-striped" *ngIf="reservations">
+	<thead class="table-dark">
+		<tr>
+			<th>Id</th>
+			<th>Fecha de comienzo</th>
+			<th>Fecha de devolucion</th>
+			<th>Cliente</th>
+			<th>Estado</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let reservation of reservations">
+			<td>{{reservation.idReservation}}</td>
+			<td>{{reservation.startDate | date}}</td>
+			<td>{{reservation.devolutionDate | date}}</td>
+			<td>{{reservation.client.name}}</td>
+			<td>{{reservation.status}}</td>
+			<td>
+				<button (click)="reservationUpdate(reservation.idReservation)" class="btn btn-info">Editar</button>
+				<button (click)="reservationDelete(reservation.idReservation)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+				<button (click)="reservationDetails(reservation.idReservation)" class="btn btn-primary" style="margin-left: 10px;">Detalles</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
